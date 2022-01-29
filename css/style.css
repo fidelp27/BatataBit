@@ -60,6 +60,11 @@ header img{
   line-height: 1.8rem;
   color: var(--soft-orange);
 }
+.header--title-container .header--link-plans{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
 .header--title-container .header--button{
   position: absolute;
   left: calc(50%-118px)
@@ -237,6 +242,11 @@ main{
   padding: 20px 10px;
   background-color: var(--warm-black);
 }
+.product-datail--batata-logo-container{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
 .product-datail--batata-logo{
   position: absolute;
   width: 40px;
@@ -362,14 +372,18 @@ main{
 }
 .plans-container--slider{
   display: flex;
+  justify-content: center;
   height: 316px;
   overflow-x: scroll;
   overscroll-behavior-x: contain;
   scroll-snap-type: x proximity;
+  overflow-y: hidden;
 }
-
 .plans-container--card{
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   scroll-snap-align: center;
   width: 70%;
   min-width: 190px;
@@ -382,11 +396,23 @@ main{
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(89,73,30,0.16);
 }
+
+
+@media (min-width: 1000px){
+  .plans-container--slider{
+    overflow-x: hidden;
+  }
+}
+.recommended-container{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
 .recommended{
   position: absolute;
   width: 120px;
   height: 31px;
-  left: 18vw;
+  margin: 0 auto;
   top: -15px;
   padding: 6px;
   margin-bottom: 20px;
@@ -466,6 +492,7 @@ footer .left ul{
   font-weight: 500;
   line-height: 1.8rem;
   list-style: none;
+  color: white;
 }
 .left li{
   margin: 10px 0;
