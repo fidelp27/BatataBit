@@ -192,13 +192,27 @@
       t = d.getElementsByTagName('script')[0];
       t.parentNode.insertBefore(s, t);
     </script> -->
-    <iframe
-    title="Garantin"
-    id="caleida-chatbot-iframe_chatbox"
-    src="https://web-plugin.caleida.io/?project_id=73362d99-8cfc-4f4e-b6b2-3df2198b0a95&verification_token=b60f07117e164bfeb3b2d736cf9885dc&embedId=73362d99-8cfc-4f4e-b6b2-3df2198b0a95&title=Garantin&skipLogin=false"
-    width="360px"
-    height="600px"
-    style="background-color: rgb(48, 34, 68); margin: auto;"
-  ></iframe>
+        
+    <script src="https://caleida-storage.fra1.cdn.digitaloceanspaces.com/public/scripts/embedder/embedder.js"></script>
+    <script>
+      const bot = new CaleidaChatBot({
+        id: "cebd9a1c-158d-4ad2-8f17-3904ae9a94ac",
+        projectId: "73362d99-8cfc-4f4e-b6b2-3df2198b0a95",
+        verificationToken: "b60f07117e164bfeb3b2d736cf9885dc",
+        language: "auto",
+        width: "360px",
+        height: "600px",
+        src: "https://web-plugin.caleida.io",
+      });
+      bot.embed({
+        floating: true,
+        floatingConfig: {
+          right: "10px",
+          bottom: "10px",
+          height: "55px",
+          width: "55px",
+        },
+      });
+    </script>
   </body>
 </html>
