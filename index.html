@@ -225,14 +225,13 @@
       </script>
       <script>
         const currentUrl = window.location.href
-        WoztellWebchat.subscribe("OPEN_WEBCHAT", ()=>{          
-          WoztellWebchat.sendEvent("WEB_EVENT", {
-            payload: {
-              action: "SAVE_URL",
-              url: currentUrl
-            }
-          })
+        WoztellWebchat.sendEvent("WEB_EVENT", {
+          payload: {
+            action: "SAVE_URL",
+            url: currentUrl
+          }
         })
+        
         
         console.log(currentUrl)
       </script>
