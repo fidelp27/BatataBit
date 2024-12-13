@@ -224,8 +224,8 @@
       },{"defaultOpen":false,"loadDelay":0})
       </script>
       <script>
-        WoztellWebchat.subscribe("OPEN_WEBCHAT", ()=>{
-          const currentUrl = window.location.href
+        const currentUrl = window.location.href
+        WoztellWebchat.subscribe("OPEN_WEBCHAT", ()=>{          
           WoztellWebchat.sendEvent("WEB_EVENT", {
             payload: {
               action: "SAVE_URL",
