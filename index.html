@@ -226,10 +226,7 @@
       <script>
         const currentUrl = window.location.href
         WoztellWebchat.sendEvent("WEB_EVENT", {
-          payload: {
-            action: "SAVE_URL",
-            url: currentUrl
-          }
+          payload: currentUrl
         })
         
         
