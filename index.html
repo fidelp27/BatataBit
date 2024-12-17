@@ -221,13 +221,15 @@
       WoztellWebchat.init({
         version: "1.0",
         token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJXQkMiLCJ0eXBlIjoiZGVmYXVsdFRva2VuIiwiYmlkIjoiNjc1YjE0YzMxYmUzZDUxZmZlOTBmNmUyIiwianRpIjoiZTk5Njc1MWUtY2JiNi01OTc3LWI1ZjItYTI5MWYxZDA3NTBiIn0.UVJ6xPkS2e-qlqLhSWOoPbeVNjY49GNePl0zczkA5tw"
-      },{"defaultOpen":false,"loadDelay":0, "ref": window.location.href})      
-      </script>
-      <script>
-        WoztellWebchat.sendEvent("WEB_EVENT", {
-          payload: "Hola",
+      },{"defaultOpen":false,"loadDelay":0, "ref": window.location.href})  
+      WoztellWebchat.sendEvent("WEB_EVENT", {
+        payload: {
+          payload: "USER_URL",
           value: window.location.href
-        })       
+        }
+      }, {
+        openMessenger: true // Abre el chat automáticamente
+      });    
       </script>
   </body>
 </html>
