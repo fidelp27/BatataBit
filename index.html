@@ -223,7 +223,7 @@
         token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJXQkMiLCJ0eXBlIjoiZGVmYXVsdFRva2VuIiwiYmlkIjoiNjc1YjE0YzMxYmUzZDUxZmZlOTBmNmUyIiwianRpIjoiZTk5Njc1MWUtY2JiNi01OTc3LWI1ZjItYTI5MWYxZDA3NTBiIn0.UVJ6xPkS2e-qlqLhSWOoPbeVNjY49GNePl0zczkA5tw"
       },{"defaultOpen":false,"loadDelay":0, "ref": window.location.href}) 
       let count = 0; 
-      WoztellWebchat.subscribe("READY", function(event) {
+      WoztellWebchat.subscribe("OPEN_WEBCHAT", function(event) {
         const textTarea = document.querySelector('textarea');
          textTarea.addEventListener('input', function(e){
            if(e.target.value.length > 0 && count === 0){
