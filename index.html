@@ -224,17 +224,15 @@
       },{"defaultOpen":false,"loadDelay":0, "ref": window.location.href})  
      
       </script>
-      <script>
-        const button = document.querySelector('.header--button');
-      console.log(button);
-      button.addEventListener('click', (e) => {
-        e.preventDefault();
-        WoztellWebchat.sendEvent("OPEN_WEBCHAT");
-        WoztellWebchat.sendEvent("WEB_EVENT", {
-          payload: "USER_URL",
-          value: window.location.href
-        })
-      })
+      <script>      
+        WoztellWebchat.subscribe("READY", function(event) {
+            const textarea = document.querySelector("textarea");
+            WoztellWebchat.sendEvent("WEB_EVENT", {
+              payload: "USER_URL",
+              value: window.location.href
+            });
+          
+        });
       </script>
   </body>
 </html>
