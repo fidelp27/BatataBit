@@ -229,14 +229,14 @@
           // Esperar a que el DOM del chat esté completamente cargado
           setTimeout(function() {
             const textArea = document.querySelector('textarea');
+            console.log("Hay textarea " + textArea)
             if (textArea) {
-              textArea.addEventListener('input', function(e) {
-                if (e.target.value.length > 0) {
+              textArea.addEventListener('click', function(e) {
+                  console.log("Ejecuta evento click en textarea")
                   WoztellWebchat.sendEvent("WEB_EVENT", {
                     payload: "USER_URL",
                     value: window.location.href
-                  });
-                }
+                  });                
               }, { once: true }); // El listener se ejecutará solo una vez
             }
           }, 500); // Ajusta el tiempo según sea necesario para asegurar que el DOM esté listo
