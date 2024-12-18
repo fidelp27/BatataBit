@@ -226,12 +226,12 @@
       </script>
       <script>      
         WoztellWebchat.subscribe("READY", function(event) {
-            const textarea = document.querySelector("textarea");
-            WoztellWebchat.sendEvent("WEB_EVENT", {
-              payload: "USER_URL",
-              value: window.location.href
-            });
-          
+            setTimeout(function(){ 
+              WoztellWebchat.sendEvent("WEB_EVENT", {
+                payload: "USER_URL",
+                value: window.location.href
+              });
+            }, 5000)          
         });
       </script>
   </body>
