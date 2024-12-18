@@ -225,21 +225,35 @@
      
       </script>
       <script>
-        WoztellWebchat.subscribe("OPEN_WEBCHAT", function(event) {
-          // Esperar a que el DOM del chat esté completamente cargado
-          setTimeout(function() {
-            const textArea = document.querySelector('textarea');
-            console.log("Hay textarea " + textArea)
-            if (textArea) {
-              textArea.addEventListener('click', function(e) {
-                  console.log("Ejecuta evento click en textarea")
-                  WoztellWebchat.sendEvent("WEB_EVENT", {
-                    payload: "USER_URL",
+        document.addEventListener('DOMContentLoaded', function() {
+          // Selecciona el contenedor del chat
+          const chatContainer = document.querySelector('.chat-visualizer-container');
+      
+          // Verifica si el contenedor existe en el DOM
+          if (chatContainer) {
+            // Crea una instancia de MutationObserver
+            const observer = new MutationObserver(function(mutationsList, observer) {
+              // Recorre las mutaciones detectadas
+              for (let mutation of mutationsList) {
+                // Verifica si se han añadido nodos al contenedor
+                if (mutation.type === 'childList' && mutation.addedNodes.length > 0 && mutation.addedNodes.length <= 1) {
+                  // Envía el evento WEB_EVENT con la URL actual
+                  WoztellWebchat.sendEvent('WEB_EVENT', {
+                    payload: 'USER_URL',
                     value: window.location.href
-                  });                
-              }, { once: true }); // El listener se ejecutará solo una vez
-            }
-          }, 500); // Ajusta el tiempo según sea necesario para asegurar que el DOM esté listo
+                  });
+                  // Desconecta el observador para evitar múltiples envíos
+                  observer.disconnect();
+                  break;
+                }
+              }
+            });
+      
+            // Configura el observador para detectar cambios en los hijos directos del contenedor
+            observer.observe(chatContainer, { childList: true });
+          } else {
+            console.error('El contenedor del chat no se encontró en el DOM.');
+          }
         });
       </script>
   </body>
