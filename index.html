@@ -222,18 +222,25 @@
         version: "1.0",
         token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJXQkMiLCJ0eXBlIjoiZGVmYXVsdFRva2VuIiwiYmlkIjoiNjc1YjE0YzMxYmUzZDUxZmZlOTBmNmUyIiwianRpIjoiZTk5Njc1MWUtY2JiNi01OTc3LWI1ZjItYTI5MWYxZDA3NTBiIn0.UVJ6xPkS2e-qlqLhSWOoPbeVNjY49GNePl0zczkA5tw"
       },{"defaultOpen":false,"loadDelay":0, "ref": window.location.href}) 
-      let count = 0; 
-      WoztellWebchat.subscribe("OPEN_WEBCHAT", function(event) {
-        const textTarea = document.querySelector('textarea');
-         textTarea.addEventListener('input', function(e){
-           if(e.target.value.length > 0 && count === 0){
-             WoztellWebchat.sendEvent("WEB_EVENT", {
-               payload: "USER_TEXTAREA",
-               value: e.target.value
-             });
-             count = 1;
-           }
-         })})
+     
+      </script>
+      <script>
+        WoztellWebchat.subscribe("OPEN_WEBCHAT", function(event) {
+          // Esperar a que el DOM del chat esté completamente cargado
+          setTimeout(function() {
+            const textArea = document.querySelector('textarea');
+            if (textArea) {
+              textArea.addEventListener('input', function(e) {
+                if (e.target.value.length > 0) {
+                  WoztellWebchat.sendEvent("WEB_EVENT", {
+                    payload: "USER_URL",
+                    value: window.location.href
+                  });
+                }
+              }, { once: true }); // El listener se ejecutará solo una vez
+            }
+          }, 500); // Ajusta el tiempo según sea necesario para asegurar que el DOM esté listo
+        });
       </script>
   </body>
 </html>
