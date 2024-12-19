@@ -11,7 +11,9 @@
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/tablet.css" media="(min-width: 930)" />
     <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
-    <script src="https://webchat.woztell.com/sdk.js"></script>
+    <!-- <script src="https://webchat.woztell.com/sdk.js"></script> -->
+    <script src="http://dev.radiate.sanuker.com/webchat.js"></script>
+
   </head>
   <body>
     <header>
@@ -218,43 +220,35 @@
       });
     </script> -->
     <script>
-      WoztellWebchat.init({
+      /*WoztellWebchat.init({
         version: "1.0",
         token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJXQkMiLCJ0eXBlIjoiZGVmYXVsdFRva2VuIiwiYmlkIjoiNjc1YjE0YzMxYmUzZDUxZmZlOTBmNmUyIiwianRpIjoiZTk5Njc1MWUtY2JiNi01OTc3LWI1ZjItYTI5MWYxZDA3NTBiIn0.UVJ6xPkS2e-qlqLhSWOoPbeVNjY49GNePl0zczkA5tw"
-      },{"defaultOpen":false,"loadDelay":0, "ref": window.location.href}) 
-     
+      },{"defaultOpen":false,"loadDelay":0, "ref": window.location.href})  */
+      console.log("iniciando RADIATE")
+      Radiate.init("675b14c31be3d51ffe90f6e2", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJBUEkiLCJhcHAiOiI2NjQ0YzQxMzZkY2RiZDVmZGU1MzM1MDIiLCJhY2wiOlsiYXBpOmFkbWluIiwiZmlsZTphZG1pbiIsImZpbGU6Z2V0IiwibWVkaWFMaWJyYXJ5OmdldCIsImFjY291bnQ6dXBkYXRlIiwiYWN0aW9uOmNyZWF0ZSIsImFjdGlvbjpkZWxldGUiLCJhZ2VuZGE6Y3JlYXRlIiwiYWN0aW9uOnVwZGF0ZSIsImFnZW5kYTpkZWxldGUiLCJhZ2VuZGE6cmVhZCIsImFnZW5kYTp1cGRhdGUiLCJhcHA6bGlua1BhcnRuZXIiLCJhcHA6bGlzdE1hbmFnbWVudFJlcXVlc3QiLCJhcHBJbmZvOmdldCIsImFwcEludGVncmF0aW9uOmNyZWF0ZSIsImFwcEludGVncmF0aW9uOmRlbGV0ZSIsImFwcEludGVncmF0aW9uOmdldCIsImFwcEludGVncmF0aW9uOmxpc3QiLCJhcHBJbnRlZ3JhdGlvbjp1cGRhdGUiLCJhcHBTZXR0aW5nczpnZXQiLCJhcHBTZXR0aW5nczp1cGRhdGUiLCJhc3NpZ25tZW50Omxpc3QiLCJhdHRhY2htZW50SWQ6Y3JlYXRlIiwiYXR0YWNobWVudElkOmxpc3QiLCJhdWRpZW5jZTpjcmVhdGUiLCJhdWRpZW5jZTpkZWxldGUiLCJhdWRpZW5jZTpnZXQiLCJhdWRpZW5jZTpsaXN0IiwiYXVkaWVuY2U6cmVhZCIsImF1ZGllbmNlOnVwZGF0ZSIsImF1ZGl0VHJhaWw6bGlzdCIsImJhY2tncm91bmRUYXNrOmdldCIsImJhY2tncm91bmRUYXNrOmxpc3QiLCJiaWxsaW5nOmNyZWF0ZVN1YnNjcmlwdGlvbiIsImJpbGxpbmc6ZGVsZXRlU3Vic2NyaXB0aW9uIiwiYmlsbGluZzpnZXRTdWJzY3JpcHRpb24iLCJiaWxsaW5nOmxpc3RJbnZvaWNlcyIsImJpbGxpbmc6dXBkYXRlU3Vic2NyaXB0aW9uIiwiYm90OmFkbWluIiwiYm90OnJlZGlyZWN0TWVtYmVyVG9Ob2RlIiwiYm90OnNlbmRSZXNwb25zZXMiLCJib3RidWlsZGVyOm1hbmFnZSIsImNoYW5uZWw6Y3JlYXRlQ2hhbm5lbCIsImJvdGJ1aWxkZXI6cmVhZCIsImNoYW5uZWw6Y3JlYXRlRW52aXJvbm1lbnQiLCJjaGFubmVsOmRlbGV0ZUNoYW5uZWwiLCJjaGFubmVsOmRlbGV0ZUVudmlyb25tZW50IiwiY2hhbm5lbDpnZXRBdmFpbGFiaWxpdGllcyIsImNoYW5uZWw6Z2V0QmFzaWNJbmZvIiwiY2hhbm5lbDpnZXRCcm9hZGNhc3RHcm91cFNldHRpbmdzIiwiY2hhbm5lbDpnZXREZXRhaWxzIiwiY2hhbm5lbDpnZXRFbnZpcm9ubWVudEluZm8iLCJjaGFubmVsOmdldExpdmVDaGF0U2V0dGluZ3MiLCJjaGFubmVsOmdldFBsYXRmb3JtSW5mbyIsImNoYW5uZWw6Z2V0UGxhdGZvcm1TZXR0aW5ncyIsImNoYW5uZWw6Z2V0VHJlZVNldHRpbmdzIiwiY2hhbm5lbDpsaXN0IiwiY2hhbm5lbDp1cGRhdGVBdmFpbGFiaWxpdGllcyIsImNoYW5uZWw6dXBkYXRlQmFzaWNJbmZvIiwiY2hhbm5lbDp1cGRhdGVCcm9hZGNhc3RHcm91cFNldHRpbmdzIiwiY2hhbm5lbDp1cGRhdGVEZXRhaWwiLCJjaGFubmVsOnVwZGF0ZUVudmlyb25tZW50SW5mbyIsImNoYW5uZWw6dXBkYXRlTGl2ZUNoYXRTZXR0aW5ncyIsImNoYW5uZWw6dXBkYXRlUGxhdGZvcm1JbmZvIiwiY2hhbm5lbDp1cGRhdGVQbGF0Zm9ybVNldHRpbmdzIiwiY2hhbm5lbDp1cGRhdGVUcmVlU2V0dGluZ3MiLCJjaGF0OmV4cG9ydCIsImNvbmRpdGlvbjpjcmVhdGUiLCJjb25kaXRpb246ZGVsZXRlIiwiY29uZGl0aW9uOnVwZGF0ZSIsImNvbnZlcnNhdGlvbjpyZWFkIiwiZGFzaGJvYXJkOmV4cG9ydEFuYWx5dGljcyIsImRhc2hib2FyZDpleHBvcnRVc2VycyIsImRhc2hib2FyZDpsaXN0QWdlbnRzIiwiZGFzaGJvYXJkOmxpc3RBbmFseXRpY3MiLCJkYXNoYm9hcmQ6bGlzdEFzc2lnbm1lbnQiLCJkYXNoYm9hcmQ6bGlzdENvbW1lbnRSZXBseSIsImRhc2hib2FyZDpsaXN0TmxwQW5hbHl0aWNzIiwiZGFzaGJvYXJkOmxpc3RUaWNrZXRpbmciLCJkYXNoYm9hcmQ6bGlzdFVzZXJzIiwiZGFzaGJvYXJkOmxpc3RXaGF0c2FwcEFuYWx5dGljcyIsImRhdGFTb3VyY2U6Y3JlYXRlRGF0YXNvdXJjZSIsImRhdGFTb3VyY2U6Y3JlYXRlRG9jIiwiZGF0YVNvdXJjZTpkZWxldGVEYXRhc291cmNlIiwiZGF0YVNvdXJjZTpkZWxldGVEb2MiLCJkYXRhU291cmNlOmV4cG9ydERhdGFzb3VyY2UiLCJkYXRhU291cmNlOmdldERvYyIsImRhdGFTb3VyY2U6aW1wb3J0RGF0YXNvdXJjZSIsImRhdGFTb3VyY2U6bGlzdERhdGFzb3VyY2VzIiwiZGF0YVNvdXJjZTpsaXN0RG9jcyIsImRhdGFTb3VyY2U6dXBkYXRlRGF0YXNvdXJjZSIsImRhdGFTb3VyY2U6dXBkYXRlRG9jIiwiZmlsZTp3YUdldCIsImludGVncmF0aW9uOmNyZWF0ZSIsImludGVncmF0aW9uOmdldCIsImludGVncmF0aW9uOmxpc3QiLCJpbnRlZ3JhdGlvbjp1cGRhdGUiLCJsb2c6bGlzdCIsIm1lZGlhTGlicmFyeTpjcmVhdGUiLCJtZWRpYUxpYnJhcnk6ZGVsZXRlIiwibWVkaWFMaWJyYXJ5Omxpc3QiLCJtZWRpYUxpYnJhcnk6dXBkYXRlIiwibWVtYmVyOlRvZ2dsZUxpdmVDaGF0IiwibWVtYmVyOmFkbWluIiwibWVtYmVyOmNyZWF0ZSIsIm1lbWJlcjpkZWxldGUiLCJtZW1iZXI6ZXhwb3J0IiwibWVtYmVyOmdldENvbnZlcnNhdGlvbiIsIm1lbWJlcjpnZXREZXRhaWxzIiwibWVtYmVyOmltcG9ydCIsIm1lbWJlcjpsaXN0IiwibWVtYmVyOnJlYWQiLCJtZW1iZXI6dXBkYXRlRGV0YWlscyIsIm1lbWJlcjp3cml0ZSIsIm1lbWJlclRhZ3M6Y3JlYXRlIiwibWVtYmVyVGFnczpkZWxldGUiLCJtZW1iZXJUYWdzOmdldCIsIm1lbWJlcnM6bWFuYWdlVGFncyIsIm5vZGU6Y3JlYXRlIiwibm9kZTpkZWxldGUiLCJub2RlOnVwZGF0ZSIsInByaW9yaXR5R3JvdXA6Y3JlYXRlIiwicHJpb3JpdHlHcm91cDpnZXQiLCJwcmlvcml0eUdyb3VwOmRlbGV0ZSIsInByaW9yaXR5R3JvdXA6bGlzdCIsInByaW9yaXR5R3JvdXA6dXBkYXRlIiwicHVzaDpjcmVhdGUiLCJwdXNoOmRlbGV0ZSIsInB1c2g6Z2V0IiwicHVzaDpsaXN0IiwicHVzaDp1cGRhdGUiLCJyZXNwb25zZTpjcmVhdGUiLCJyZXNwb25zZTpkZWxldGUiLCJyZXNwb25zZTp1cGRhdGUiLCJyb2xlOmxpc3QiLCJ0ZWFtTWVtYmVyOmNyZWF0ZSIsInRlYW1NZW1iZXI6ZGVsZXRlIiwidGVhbU1lbWJlcjpsaXN0IiwidGVhbU1lbWJlcjp1cGRhdGUiLCJ0cmVlOmRlbGV0ZSIsInRyZWU6ZXhwb3J0IiwidHJlZTpnZXRCYXNpY0luZm8iLCJ0cmVlOmdldE5vZGVzIiwidHJlZTpnZXRUcmVlU2V0dGluZyIsInRyZWU6aW1wb3J0IiwidHJlZTpsaXN0IiwidHJlZTpyZWFkIiwidHJlZTp1cGRhdGVCYXNpY0luZm8iLCJ0cmVlOnVwZGF0ZU5vZGVzIiwidHJlZTp1cGRhdGVUcmVlU2V0dGluZyIsInRyaWdnZXI6Y3JlYXRlIiwidHJpZ2dlcjpkZWxldGUiLCJ0cmlnZ2VyOnVwZGF0ZSIsIndoYXRzYXBwOmdldEZpbGUiLCJ3aGF0c2FwcE1lc3NhZ2VUZW1wbGF0ZXM6Y3JlYXRlIiwid2hhdHNhcHBNZXNzYWdlVGVtcGxhdGVzOmRlbGV0ZSIsIndoYXRzYXBwTWVzc2FnZVRlbXBsYXRlczpnZXQiLCJ3aGF0c2FwcE1lc3NhZ2VUZW1wbGF0ZXM6bGlzdCJdLCJqdGkiOiIzNGRmOWU4NS1hNzExLTU0ZWItOWM5ZS0zZmQ3MWQxOGE1NjEiLCJpc3MiOiI2NjQ0YzNmN2MxNDhmYzgzMjU4NGRkY2UiLCJpYXQiOjE3MzQzODA0NDEwMDh9.IqYPZseP4vUnbRJRXuCclG1NVnCHgOKmHQrgoHlQq0M");
+      console.log("RADIATE iniciado")
       </script>
       <script>
-        document.addEventListener('DOMContentLoaded', function() {
-          // Selecciona el contenedor del chat
-          const chatContainer = document.querySelector('.chat-visualizer-container');
-      
-          // Verifica si el contenedor existe en el DOM
-          if (chatContainer) {
-            // Crea una instancia de MutationObserver
-            const observer = new MutationObserver(function(mutationsList, observer) {
-              // Recorre las mutaciones detectadas
-              for (let mutation of mutationsList) {
-                // Verifica si se han añadido nodos al contenedor
-                if (mutation.type === 'childList' && mutation.addedNodes.length > 0 && mutation.addedNodes.length <= 1) {
-                  // Envía el evento WEB_EVENT con la URL actual
-                  WoztellWebchat.sendEvent('WEB_EVENT', {
-                    payload: 'USER_URL',
-                    value: window.location.href
-                  });
-                  // Desconecta el observador para evitar múltiples envíos
-                  observer.disconnect();
-                  break;
-                }
+        // Esperar a que el DOM del chat esté completamente cargado
+         /* WoztellWebchat.subscribe("OPEN_WEBCHAT", function(){
+              console.log("Chat cargado")
+              console.log("window: " + JSON.stringify(document.querySelector("root")))  
+              const textArea = document.getElementsByTagName("textarea")[0]
+              console.log("Hay textarea " + textArea)
+              if (textArea) {
+                textArea.addEventListener('input', function(e) {
+                        console.log("Ejecuta")
+                        WoztellWebchat.sendEvent("WEB_EVENT", {
+                          payload: "USER_URL",
+                          value: window.location.href
+                      });                             
+                }); // El listener se ejecutará solo una vez
               }
-            });
+          });
+         */
+         
+          console.log("hola")
+    </script>
       
-            // Configura el observador para detectar cambios en los hijos directos del contenedor
-            observer.observe(chatContainer, { childList: true });
-          } else {
-            console.error('El contenedor del chat no se encontró en el DOM.');
-          }
-        });
-      </script>
   </body>
 </html>
