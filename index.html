@@ -12,8 +12,7 @@
     <link rel="stylesheet" href="./css/tablet.css" media="(min-width: 930)" />
     <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
     <!-- <script src="https://webchat.woztell.com/sdk.js"></script> -->
-    <script src="https://dev.radiate.sanuker.com/webchat.js"></script>
-
+    <script src="https://webchat.woztell.com/sdk.js"></script>
   </head>
   <body>
     <header>
@@ -220,16 +219,16 @@
       });
     </script> -->
     <script>
-      /*WoztellWebchat.init({
+      console.log("Iniciando chat")
+      WoztellWebchat.init({
         version: "1.0",
         token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJXQkMiLCJ0eXBlIjoiZGVmYXVsdFRva2VuIiwiYmlkIjoiNjc1YjE0YzMxYmUzZDUxZmZlOTBmNmUyIiwianRpIjoiZTk5Njc1MWUtY2JiNi01OTc3LWI1ZjItYTI5MWYxZDA3NTBiIn0.UVJ6xPkS2e-qlqLhSWOoPbeVNjY49GNePl0zczkA5tw"
-      },{"defaultOpen":false,"loadDelay":0, "ref": window.location.href})  */
-      console.log("iniciando RADIATE")
-      Radiate.init("675b14c31be3d51ffe90f6e2", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJXQkMiLCJ0eXBlIjoiZGVmYXVsdFRva2VuIiwiYmlkIjoiNjc1YjE0YzMxYmUzZDUxZmZlOTBmNmUyIiwianRpIjoiZTk5Njc1MWUtY2JiNi01OTc3LWI1ZjItYTI5MWYxZDA3NTBiIn0.UVJ6xPkS2e-qlqLhSWOoPbeVNjY49GNePl0zczkA5tw")
+      },{"defaultOpen":false,"loadDelay":0, "ref": window.location.href})  
+      
       </script>
       <script>
         // Esperar a que el DOM del chat esté completamente cargado
-         /* WoztellWebchat.subscribe("OPEN_WEBCHAT", function(){
+         WoztellWebchat.subscribe("OPEN_WEBCHAT", function(){
               console.log("Chat cargado")
               console.log("window: " + JSON.stringify(document.querySelector("root")))  
               const textArea = document.getElementsByTagName("textarea")[0]
@@ -244,7 +243,7 @@
                 }); // El listener se ejecutará solo una vez
               }
           });
-         */
+         
          
           console.log("hola")
     </script>
