@@ -220,35 +220,12 @@
     </script> -->
     <script src="https://webchat.woztell.com/sdk.js"></script>
     <script>
-        let isUrlSent = false;
         WoztellWebchat.init({
           version: "1.0",
           token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJXQkMiLCJ0eXBlIjoiZGVmYXVsdFRva2VuIiwiYmlkIjoiNjc1YjE0YzMxYmUzZDUxZmZlOTBmNmUyIiwianRpIjoiZTk5Njc1MWUtY2JiNi01OTc3LWI1ZjItYTI5MWYxZDA3NTBiIn0.UVJ6xPkS2e-qlqLhSWOoPbeVNjY49GNePl0zczkA5tw"
-        },{"defaultOpen":false,"loadDelay":0})
+        },{"defaultOpen":false,"loadDelay":0, "ref": window.location.href})
         
-        function sendUrlToChat() {
-          if (!isUrlSent) { // Verificar si ya se envió la URL
-            const currentUrl = window.location.href;
-            WoztellWebchat.sendEvent("WEB_EVENT", {
-              payload: "USER_URL",  // Acción definida en el bot para capturar la URL
-              value: currentUrl     // Enviar la URL actual
-            });
-      
-            console.log("URL enviada al chat:", currentUrl);
-      
-            // Cambiar la bandera para evitar ejecuciones duplicadas
-            isUrlSent = true;
-          }
-        }
-        const chatZone = document.querySelector(".css-1vfge06"); // Cambia el selector al de tu chat
-        console.log("chatZone", chatZone);
-        if (chatZone) {
-          isUrlSent = false; // Restablecer la bandera al cargar la página
-          chatZone.addEventListener("mouseover", sendUrlToChat); // Detectar interacción con el chat
-          chatZone.addEventListener("click", sendUrlToChat);    // Detectar clics en el chat
-        } else {
-          console.error("Zona del chat no encontrada. Asegúrate de usar el selector correcto.");
-        }
+       
     </script>
       
   </body>
