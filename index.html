@@ -218,34 +218,35 @@
         },
       });
     </script> -->
+    <script src="https://webchat.woztell.com/sdk.js"></script>
     <script>
-      console.log("Iniciando chat")
-      WoztellWebchat.init({
-        version: "1.0",
-        token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJXQkMiLCJ0eXBlIjoiZGVmYXVsdFRva2VuIiwiYmlkIjoiNjc1YjE0YzMxYmUzZDUxZmZlOTBmNmUyIiwianRpIjoiZTk5Njc1MWUtY2JiNi01OTc3LWI1ZjItYTI5MWYxZDA3NTBiIn0.UVJ6xPkS2e-qlqLhSWOoPbeVNjY49GNePl0zczkA5tw"
-      },{"defaultOpen":false,"loadDelay":0, "ref": window.location.href})  
+
+        WoztellWebchat.init({
+          version: "1.0",
+          token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJXQkMiLCJ0eXBlIjoiZGVmYXVsdFRva2VuIiwiYmlkIjoiNjc1YjE0YzMxYmUzZDUxZmZlOTBmNmUyIiwianRpIjoiZTk5Njc1MWUtY2JiNi01OTc3LWI1ZjItYTI5MWYxZDA3NTBiIn0.UVJ6xPkS2e-qlqLhSWOoPbeVNjY49GNePl0zczkA5tw"
+        },{"defaultOpen":false,"loadDelay":0})
+        
+        function sendUrlToChat() {
+          if (!isUrlSent) { // Verificar si ya se envió la URL
+            const currentUrl = window.location.href;
+            WoztellWebchat.sendEvent("WEB_EVENT", {
+              payload: "USER_URL",  // Acción definida en el bot para capturar la URL
+              value: currentUrl     // Enviar la URL actual
+            });
       
-      </script>
-      <script>
-        // Esperar a que el DOM del chat esté completamente cargado
-         WoztellWebchat.subscribe("OPEN_WEBCHAT", function(){
-              console.log("Chat cargado")
-              console.log("window: " + JSON.stringify(document.querySelector("root")))  
-              const textArea = document.getElementsByTagName("textarea")[0]
-              console.log("Hay textarea " + textArea)
-              if (textArea) {
-                textArea.addEventListener('input', function(e) {
-                        console.log("Ejecuta")
-                        WoztellWebchat.sendEvent("WEB_EVENT", {
-                          payload: "USER_URL",
-                          value: window.location.href
-                      });                             
-                }); // El listener se ejecutará solo una vez
-              }
-          });
-         
-         
-          console.log("hola")
+            console.log("URL enviada al chat:", currentUrl);
+      
+            // Cambiar la bandera para evitar ejecuciones duplicadas
+            isUrlSent = true;
+          }
+        }
+        const chatZone = document.querySelector(".css-1vfge06"); // Cambia el selector al de tu chat
+        if (chatZone) {
+          chatZone.addEventListener("mouseover", sendUrlToChat); // Detectar interacción con el chat
+          chatZone.addEventListener("click", sendUrlToChat);    // Detectar clics en el chat
+        } else {
+          console.error("Zona del chat no encontrada. Asegúrate de usar el selector correcto.");
+        }
     </script>
       
   </body>
