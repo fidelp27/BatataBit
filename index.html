@@ -233,6 +233,14 @@
             ref: window.location.href // Pasar la URL actual como referencia
           });
         })
+        window.addEventListener("beforeunload", function (event) {
+          WoztellWebchat.sendEvent("WEB_EVENT", {
+            payload: window.location.href, // Acción personalizada que el chatbot debe manejar
+            type: "uri_customer" // Opción seleccionada, si aplica
+          }, {
+            ref: window.location.href // Pasar la URL actual como referencia
+          });
+        });
         
       </script>
       
