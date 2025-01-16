@@ -229,18 +229,25 @@
           WoztellWebchat.sendEvent("WEB_EVENT", {
             payload: window.location.href, // Acción personalizada que el chatbot debe manejar
             type: "uri_customer" // Opción seleccionada, si aplica
-          }, {
-            ref: window.location.href // Pasar la URL actual como referencia
-          });
+          })       
         })
-        window.addEventListener("beforeunload", function (event) {
-          WoztellWebchat.sendEvent("WEB_EVENT", {
-            payload: window.location.href, // Acción personalizada que el chatbot debe manejar
-            type: "uri_customer" // Opción seleccionada, si aplica
-          }, {
-            ref: window.location.href // Pasar la URL actual como referencia
-          });
+        window.addEventListener("beforeunload", (event) => {
+          try {
+            console.log("Intentando cerrar el chat antes de salir...");            
+            console.log("Enviando URL al chatbot...");
+            WoztellWebchat.sendEvent("WEB_EVENT", {
+              payload: "uri_customer",
+              selectedOption: window.location.href
+            });
+            
+            console.log("Chat cerrado y URL enviada.");
+            event.preventDefault();
+            event.returnValue = ""; // Algunas implementaciones lo necesitan
+          } catch (error) {
+            console.error("Error durante el evento beforeunload:", error);
+          }
         });
+        
         
       </script>
       
