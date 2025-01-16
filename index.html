@@ -231,22 +231,25 @@
             type: "uri_customer" // Opción seleccionada, si aplica
           })       
         })
-        window.addEventListener("beforeunload", (event) => {
-          try {
-            console.log("Intentando cerrar el chat antes de salir...");            
-            console.log("Enviando URL al chatbot...");
-            WoztellWebchat.sendEvent("WEB_EVENT", {
-              payload: "uri_customer",
-              selectedOption: window.location.href
-            });
-            
-            console.log("Chat cerrado y URL enviada.");
-            event.preventDefault();
-            event.returnValue = ""; // Algunas implementaciones lo necesitan
-          } catch (error) {
-            console.error("Error durante el evento beforeunload:", error);
+        document.addEventListener("visibilitychange", () => {
+          if (document.visibilityState === "hidden") {
+            try {
+              // Cerrar el chat
+              WoztellWebchat.sendEvent("CLOSE_WEBCHAT");
+        
+              // Enviar la URL actual
+              WoztellWebchat.sendEvent("WEB_EVENT", {
+                payload: "uri_customer",
+                selectedOption: window.location.href
+              });
+        
+              console.log("Chat cerrado y URL enviada (visibilitychange).");
+            } catch (error) {
+              console.error("Error al manejar el evento visibilitychange:", error);
+            }
           }
         });
+        
         
         
       </script>
