@@ -227,8 +227,8 @@
 
         WoztellWebchat.subscribe("CLOSE_WEBCHAT", ()=>{
           WoztellWebchat.sendEvent("WEB_EVENT", {
-            payload: "uri_customer", // Acción personalizada que el chatbot debe manejar
-            selectedOption: window.location.href // Opción seleccionada, si aplica
+            payload: window.location.href, // Acción personalizada que el chatbot debe manejar
+            type: "uri_customer" // Opción seleccionada, si aplica
           }, {
             ref: window.location.href // Pasar la URL actual como referencia
           });
